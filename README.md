@@ -1,6 +1,6 @@
 # ViT-VQVAE
 
-This repo conatins a minimal implementation of a VQ-VAE based on the Vision Transformer
+This repo conatins a minimal implementation of a VQ-VAE based on the Vision Transformer. The model is still undertrained but this is just a proof of concept at the moment
 
 # Results
 True Image:
