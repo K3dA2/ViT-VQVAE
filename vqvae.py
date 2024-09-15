@@ -5,10 +5,10 @@ from model import EncoderViT,DecoderViT
 
 
 class VQVAE(nn.Module):
-    def __init__(self, latent_dim=1, num_embeddings=512, beta=0.25, use_ema=True, ema_decay=0.99, e_width = 64, d_width = 64):
+    def __init__(self, latent_dim=1, emb_dim = 128,num_embeddings=512, beta=0.25, use_ema=True, ema_decay=0.99, e_width = 64, d_width = 64):
         super().__init__()
-        self.encoder = EncoderViT(latent_dim=latent_dim)
-        self.decoder = DecoderViT(latent_dim=latent_dim)
+        self.encoder = EncoderViT(latent_dim=latent_dim, dim=emb_dim)
+        self.decoder = DecoderViT(latent_dim=latent_dim, dim=emb_dim)
         self.codebook = nn.Embedding(num_embeddings, latent_dim)
         self.register_buffer('ema_cluster_size', torch.zeros(num_embeddings))
         self.register_buffer('ema_w', torch.zeros(num_embeddings, latent_dim))
